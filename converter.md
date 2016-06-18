@@ -9,7 +9,7 @@ keywords:
 ...
 
 <div id="converter">
-<input type="text" placeholder="Enter string of ascii symbols and press ENTER." />
+<input type="text" placeholder="Enter a string of ascii symbols and press ENTER." />
 <div class="output">
 </div>
 </div>
@@ -20,6 +20,7 @@ margin: 2px;
 padding: 2px;
 font-size: 14pt;
 width:95vw;
+font-family: sans-serif;
 }
 
 #converter input {
@@ -41,6 +42,7 @@ padding-top: 2px;
 padding-left: 2px;
 margin-right: 2px;
 margin-left: 2px;
+text-indent: 0;
 }
 
 #converter .output p + p {
