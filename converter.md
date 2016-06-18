@@ -1,0 +1,52 @@
+---
+title: symbol2unicode converter
+author: Huub de Beer
+keywords:
+-   ascii
+-   unicode
+-   js
+-   symbols
+...
+
+<div id="converter">
+    <input type="text" placeholder="Enter string of ascii symbols and press ENTER." />
+    <div class="output">
+    </div>
+</div>
+<script src="lib/web.js"></script>
+<style>
+#converter {
+margin: 2px;
+padding: 2px;
+font-size: 14pt;
+width:95vw;
+}
+
+#converter input {
+font-size: inherit;
+margin-bottom: 2px;
+margin-right: 2px;
+margin-left: 2px;
+width: 94vw;
+padding-left: 2px;
+border: none;
+border-bottom: 1px solid dimgray;
+}
+
+#converter .output {
+padding-top: 2px;
+}
+
+#converter .output p {
+padding-left: 2px;
+margin-right: 2px;
+margin-left: 2px;
+}
+
+#converter .output p + p {
+margin-bottom: 0;
+margin-top: 0;
+padding-bottom: 0;
+
+}
+</style>

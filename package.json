@@ -1,0 +1,29 @@
+{
+  "name": "symbol2unicode",
+  "version": "0.0.1",
+  "description": "Convert a string of ascii symbols to unicode",
+  "bin": {
+    "symbol2unicode": "bin/cli"
+  },
+  "scripts": {
+    "build": "rollup src/cli.js -o lib/cli.js; rollup src/web.js -o lib/web.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/htdebeer/symbol2unicode.git"
+  },
+  "keywords": [
+    "ascii",
+    "unicode",
+    "symbols"
+  ],
+  "author": "Huub de Beer <Huub@heerdebeer.org>",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/htdebeer/symbol2unicode/issues"
+  },
+  "homepage": "https://heerdebeer.org/Software/symbol2unicode/",
+  "devDependencies": {
+    "rollup": "^0.31.2"
+  }
+}
