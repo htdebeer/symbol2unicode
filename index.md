@@ -12,6 +12,8 @@ keywords:
 -   mathematics
 ...
 
+# Introduction
+
 While reading Nederpelt and Kamareddine (2011) *Logical reasoning: A first
 course* for a project to explore [constructionist
 learning](https://en.wikipedia.org/wiki/Constructionism_%28learning_theory%29)
@@ -61,7 +63,8 @@ from the line above.
 
 Run the program `symbol2unicode` with the
 [ASCII](https://en.wikipedia.org/wiki/ASCII) representations of the
-symbols you want to convert as parameters. For example, to convert `=>` to `⇒`
+symbols you want to convert as parameters. For example, to convert `=>` to
+`⇒`,
 run the program as follows:
 
 ~~~{.bash}
