@@ -9,9 +9,9 @@ keywords:
 ...
 
 <div id="converter">
-    <input type="text" placeholder="Enter string of ascii symbols and press ENTER." />
-    <div class="output">
-    </div>
+<input type="text" placeholder="Enter string of ascii symbols and press ENTER." />
+<div class="output">
+</div>
 </div>
 <script src="lib/web.js"></script>
 <style>
