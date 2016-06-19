@@ -106,7 +106,7 @@ results in `P ∧ Q ≡ true`.
 # Overview ASCII-Unicode mappings
 
 For a full overview of the ASCII to Unicode mappings, see
-the source code file `[src/DEFAULT_REPLACEMENTS.js](src/DEFAULT_REPLACEMENTS.js)`. 
+the source code file [`src/DEFAULT_REPLACEMENTS.js`](https://github.com/htdebeer/symbol2unicode/blob/master/src/DEFAULT_REPLACEMENTS.js). 
 
 The rules for replacement rules are simple:
 

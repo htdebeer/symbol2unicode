@@ -7,7 +7,7 @@ keywords:
 -   js
 -   symbols
 ...
-
+[documentation](index.html)
 <div id="converter">
 <input type="text" tabIndex="1" autofocus placeholder="Enter a string of ascii symbols and press ENTER." />
 <div class="output">
