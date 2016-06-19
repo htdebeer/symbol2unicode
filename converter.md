@@ -1,13 +1,11 @@
 ---
-title: symbol2unicode converter
-author: Huub de Beer
+title: symbol2unicode converter ([documentation](index.html))
 keywords:
 -   ascii
 -   unicode
 -   js
 -   symbols
 ...
-[documentation](index.html)
 <div id="converter">
 <input type="text" tabIndex="1" autofocus placeholder="Enter a string of ascii symbols and press ENTER." />
 <div class="output">
