@@ -27,7 +27,7 @@ font-size: inherit;
 margin-bottom: 2px;
 margin-right: 2px;
 margin-left: 2px;
-width: cal(94vw - 15ex);
+width: calc(94vw - 15ex);
 padding-left: 2px;
 border: none;
 border-bottom: 1px solid dimgray;
