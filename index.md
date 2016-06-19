@@ -76,7 +76,8 @@ example,
 symbol2unicode "P /\ Q" "=>" "!Q \/ P === !P"
 ~~~~
 
-results in the output `P ∧ Q ⇒ ¬Q ∨ P ≡ ¬P`.
+results in the output `P ∧ Q ⇒ ¬Q ∨ P ≡ ¬P`. The input string `(<forall i: i
+in ZZ:i <= i^2>)` will be converted to `〈∀ i: i ∈ ℤ:i ≤ i²〉`.
 
 If the `symbol2unicode` program is executed without any parameters, it will
 run in *interactive mode*. The interactive mode starts by printing the
@@ -102,3 +103,57 @@ echo "P /\ Q === true" | symbol2unicode
 
 results in `P ∧ Q ≡ true`.
 
+# Overview ASCII-Unicode mappings
+
+For a full overview of the ASCII to Unicode mappings, see
+the source code file `[src/DEFAULT_REPLACEMENTS.js](src/DEFAULT_REPLACEMENTS.js)`. 
+
+The rules for replacement rules are simple:
+
+-   An ASCII symbol representation can occur only once, but Unicode symbols
+    can occur as often as needed.
+-   An Unicode symbol is **exactly** one character, but the ASCII symbol
+    representations can have as many characters as needed.
+
+Where there are clear conventions for ASCII symbol representations, such as in
+programming languages, these conventions have priority over more "logical"
+representations. Therefore, `<=` is converter to `≤` rather than `⇐` (which
+you get with `<==`).
+
+You can add a symbol to the *default* list of replacements by either doing a
+pull request or by shooting me an email. Before you do, however, check if your
+new replacement rule does not interfere with pre-existing rules. You can check
+that by 
+
+-   On the command line: add your rules to the `src/DEFAULT_REPLACEMENTS.js`
+    file, build the program with
+
+    ~~~{.bash}
+    npm run build
+    ~~~
+
+    and start the program
+    
+    ~~~{.bash}
+    bin/cli
+    ~~~
+    
+    If your new rule is in conflict with a pre-existing rule, it will complain
+    and exit.
+
+-   In the web browser: go to the [web
+    interface](https://heerdebeer.org/Software/symbol2unicode/converter.html)
+    and open the javascript console. The `converter` is in the global scope. You
+    can try to add your rules by calling the `rule` method on the converter
+    like so:
+
+    ~~~{.javascript}
+    converter.rule("=>", "⋔");
+    ~~~
+
+    The first argument to the rule method is the ASCII representation and the
+    second one is the Unicode symbol. Again, if your rule interferes with a
+    pre-existing rule or is otherwise not okay, it will complain.
+
+Of course, as `symbol2unicode` is free software, you are free to create your
+own set of (default) translation rules.
