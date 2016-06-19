@@ -1,5 +1,5 @@
 ---
-title: symbol2unicode converter ([documentation](index.html))
+title: symbol2unicode converter
 keywords:
 -   ascii
 -   unicode
@@ -7,7 +7,7 @@ keywords:
 -   symbols
 ...
 <div id="converter">
-<input type="text" tabIndex="1" autofocus placeholder="Enter a string of ascii symbols and press ENTER." />
+<input type="text" tabIndex="1" autofocus placeholder="Enter a string of ascii symbols and press ENTER." /> ([documentation](index.html))
 <div class="output">
 </div>
 </div>
@@ -27,7 +27,7 @@ font-size: inherit;
 margin-bottom: 2px;
 margin-right: 2px;
 margin-left: 2px;
-width: 94vw;
+width: cacl(94vw - 15ex);
 padding-left: 2px;
 border: none;
 border-bottom: 1px solid dimgray;
