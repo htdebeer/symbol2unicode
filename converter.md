@@ -1,7 +1,5 @@
 ---
 title: symbol2unicode converter ([documentation](index.html))
-author: Huub de Beer
-date: "June, 2016"
 keywords:
 -   ascii
 -   unicode
@@ -17,6 +15,7 @@ keywords:
 <style>
 #converter {
 margin: 2px;
+margin-top: 5vh;
 padding: 2px;
 font-size: 14pt;
 width:95vw;
