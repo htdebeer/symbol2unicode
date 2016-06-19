@@ -1,5 +1,7 @@
 ---
 title: symbol2unicode converter ([documentation](index.html))
+author: Huub de Beer
+date: "June, 2016"
 keywords:
 -   ascii
 -   unicode
