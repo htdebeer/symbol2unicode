@@ -1,7 +1,8 @@
 {
   "name": "symbol2unicode",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Convert a string of ascii symbols to unicode",
+  "main": "lib/cli.js",
   "bin": {
     "symbol2unicode": "bin/cli"
   },
@@ -25,5 +26,8 @@
   "homepage": "https://heerdebeer.org/Software/symbol2unicode/",
   "devDependencies": {
     "rollup": "^0.31.2"
+  },
+  "engines": {
+      "node": ">=6.0.0"
   }
 }
