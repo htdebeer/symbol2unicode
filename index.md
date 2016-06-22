@@ -111,12 +111,11 @@ course, I can call it as any other external program in Vim:
     :r !symbol2unicode "(forall i:i in NN:i <= i^2)"
 
 Which will insert (∀ i: i ∈ ℕ: i ≤ i²) on the line below the one where the
-cursor is. This works fine, but the command is quite a "mouthful",
+cursor is. This works fine, but the command is quite a lineful,
 particularly if you only want to insert a single symbol now and then. A simple
 way to decrease the invocation length, is to create an alias in
 [Bash](https://www.gnu.org/software/bash/) (or any other shell that supports
 them) for `symbol2unicode` to something shorter, such as `s2u` or `uu`.
-⇒
 
 A better way, however, is to create a custom Vim command—I like the sound of
 `S2u` for that ([custom commands should start with a capital letter](http://vimdoc.sourceforge.net/htmldoc/usr_40.html#40.2))—that feeds its argument to `symbol2unicode` and inserts the
@@ -128,9 +127,9 @@ To create the `S2u` command, run
 
     :command -nargs=+ S2u r! symbol2unicode "<args>"
 
-or add it to your `.vimrc`. As a next step, you could map calling `S2u` to a
-key, such as `F7`, with `:map <F7> <Esc>:S2u <Space>`. 
-
+or add it to your `.vimrc`. As a next step, you could map `S2u` to a
+key, such as `F7`, with `:map <F7> <Esc>:S2u <Space>`. All you now have to do
+is to press that key, type your ASCII string of symbols and press `ENTER`.
 
 # Overview ASCII-Unicode mappings
 
