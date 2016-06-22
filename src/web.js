@@ -16,12 +16,11 @@
  * You should have received a copy of the GNU General Public License along
  * with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-import DEFAULT_REPLACEMENTS from "./DEFAULT_REPLACEMENTS.js";
 import Converter from "./Converter.js";
 import ConverterHistory from "./ConverterHistory.js";
 
 const converterHistory = new ConverterHistory();
-const converter = new Converter(DEFAULT_REPLACEMENTS);
+const converter = new Converter();
 
 const converterElt = document.getElementById("converter");
 const inputElt = converterElt.querySelector("input");

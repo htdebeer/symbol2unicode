@@ -16,6 +16,8 @@
  * You should have received a copy of the GNU General Public License along
  * with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+import DEFAULT_REPLACEMENTS from "./DEFAULT_REPLACEMENTS.js";
+
 const State = class {
     constructor() {
         this.accepting = [];
@@ -59,7 +61,7 @@ const State = class {
 };
 
 export default class Converter {
-    constructor(replacements = []) {
+    constructor(replacements = DEFAULT_REPLACEMENTS) {
         this.dfa = new State();
         replacements.forEach(([original, replacement]) => this.rule(original, replacement));
     }

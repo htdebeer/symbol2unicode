@@ -365,61 +365,15 @@ class Converter {
     }
 }
 
-const streamingMode = function (inStream, outStream, converter) {
-    inStream.setEncoding("utf8");
-    outStream.setEncoding("utf8");
+const assert = require("chai").assert;
 
-    inStream.on("data", (chunk) => {
-        outStream.write(converter.run(chunk));
-    });
+const converter = new Converter(DEFAULT_REPLACEMENTS);
 
-    inStream.on("end", () => {
-        process.exit(0);
-    });
-};
-
-const interactiveMode = function (inStream, outStream, converter) {
-    const PROMPT = "? ";
-    const PADDING = (new Array(PROMPT.length + 1)).join(" ");
-    const WELCOME_MESSAGE = `Welcome by symbol2unicode. 
-
-Usage: 
-
-Enter a string of ascii symbols after the prompt (${PROMPT}) and press
-ENTER to convert it to unicode. Press CONTROL+C to quit.
-
-`;
-
-    const readline = require("readline");
-    const rl = readline.createInterface(inStream, outStream);
-
-    rl.on("line", (line) => {
-        const input = line.trim();
-        const output = converter.run(input);
-
-        console.log(`\n${PADDING}${output}\n`);
-
-        rl.prompt();
-    });
-
-    rl.on("close", () => {
-        console.log("\n");
-        process.exit(0);
-    });
-
-    console.log(WELCOME_MESSAGE);
-    rl.setPrompt(PROMPT);
-    rl.prompt();
-};
-
-const converter = new Converter();
-
-if (process.stdin.isTTY) {
-    if (2 < process.argv.length) {
-        console.log(converter.run(process.argv.slice(2).join(" ")));
-    } else {
-        interactiveMode(process.stdin, process.stdout, converter);
-    }
-} else {
-    streamingMode(process.stdin, process.stdout, converter);
-}
+describe("The Converter", function () {
+        it("should convert all default replacements in DEFAULT_REPLACEMENTS.js", function () {
+            for (let [input, output] of DEFAULT_REPLACEMENTS) {
+                const result = converter.run(input);
+                assert.equal(result, output, `result '${result}' should be equal to '${output}'.`);
+            }
+        });
+});

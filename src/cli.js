@@ -16,7 +16,6 @@
  * You should have received a copy of the GNU General Public License along
  * with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-import DEFAULT_REPLACEMENTS from "./DEFAULT_REPLACEMENTS.js";
 import Converter from "./Converter.js";
 
 const streamingMode = function (inStream, outStream, converter) {
@@ -66,7 +65,7 @@ ENTER to convert it to unicode. Press CONTROL+C to quit.
     rl.prompt();
 };
 
-const converter = new Converter(DEFAULT_REPLACEMENTS);
+const converter = new Converter();
 
 if (process.stdin.isTTY) {
     if (2 < process.argv.length) {
