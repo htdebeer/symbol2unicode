@@ -1,6 +1,6 @@
 {
   "name": "symbol2unicode",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Convert a string of ascii symbols to unicode",
   "bin": {
     "symbol2unicode": "bin/cli"
