@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+        <meta name="keywords" content="ascii, unicode, js, symbols">
+        <title>symbol2unicode converter</title>
+        <style>
+            #converter {
+                margin: 2px;
+                margin-top: 5vh;
+                padding: 2px;
+                font-size: 14pt;
+                width:95vw;
+                font-family: sans-serif;
+            }
+
+            #converter input {
+                font-size: inherit;
+                margin-bottom: 2px;
+                margin-right: 2px;
+                margin-left: 2px;
+                width: calc(94vw - 15ex);
+                padding-left: 2px;
+                border: none;
+                border-bottom: 1px solid dimgray;
+            }
+
+            #converter .output {
+                padding-top: 2px;
+            }
+
+            #converter .output p {
+                padding-left: 2px;
+                margin-right: 2px;
+                margin-left: 2px;
+                text-indent: 0;
+            }
+
+            #converter .output p + p {
+                margin-bottom: 0;
+                margin-top: 0;
+                padding-bottom: 0;
+
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1 class="title">symbol2unicode converter</h1>
+        </header>
+        <div id="converter">
+            <input type="text" tabIndex="1" autofocus placeholder="Enter a string of ascii symbols and press ENTER." />
+            <div class="output"></div>
+        </div>
+        <script src="../lib/web.js"></script>
+    </body>
+</html>

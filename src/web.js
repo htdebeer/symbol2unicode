@@ -1,7 +1,7 @@
 /**
  * symbol2unicode: convert a string of ascii symbols to unicode
  * 
- * copyright (C) 2016 Huub de Beer <Huub@heerdebeer.org>
+ * copyright (C) 2016, 2017 Huub de Beer <Huub@heerdebeer.org>
  *
  * This program is free software: you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by the Free
@@ -26,37 +26,36 @@ const converterElt = document.getElementById("converter");
 const inputElt = converterElt.querySelector("input");
 const outputElt = converterElt.querySelector(".output");
 
-let previousReplacementElt = null;
+let previousReplacementElt;
 
 inputElt.addEventListener("keypress", (event) => {
     switch (event.key) {
-        case "ArrowDown": {
-            inputElt.value = converterHistory.next();
-            break;
+    case "ArrowDown": {
+        inputElt.value = converterHistory.next();
+        break;
+    }
+
+    case "ArrowUp": {
+        inputElt.value = converterHistory.previous();
+        break;
+    }
+
+    case "Enter": {
+        const input = inputElt.value.trim();
+
+        if (0 < input.length) {
+            const replacementElt = document.createElement("p");
+            replacementElt.innerHTML = converter.run(input);
+            previousReplacementElt = outputElt.insertBefore(replacementElt,previousReplacementElt);
+            converterHistory.add(input);
         }
 
-        case "ArrowUp": {
-            inputElt.value = converterHistory.previous();
-            break;
-        }
+        inputElt.value = "";
+        break;
+    }
 
-        case "Enter": {
-            const input = inputElt.value.trim();
-
-            if (0 < input.length) {
-                const replacementElt = document.createElement("p");
-                replacementElt.innerHTML = converter.run(input);
-                previousReplacementElt = outputElt.insertBefore(replacementElt,
-                        previousReplacementElt);
-                converterHistory.add(input);
-            }
-
-            inputElt.value = "";
-            break;
-        }
-
-        default: {
-            // ignore
-        }
+    default: {
+        // ignore
+    }
     }
 });

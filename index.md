@@ -34,9 +34,9 @@ their [Unicode](https://en.wikipedia.org/wiki/Unicode) equivalents?
 
 `symbol2unicode` is [free
 software](https://www.gnu.org/philosophy/free-sw.en.html); `symbol2unicode` is
-licenced under the [GNU General Public Licence Version
+licensed under the [GNU General Public Licence Version
 3](https://www.gnu.org/licenses/gpl-3.0.en.html). You will find its [source
-code at github](https://github.com/htdebeer/symbol2unicode).
+code at Github](https://github.com/htdebeer/symbol2unicode).
 
 There are two ways to use `symbol2unicode`: via a [web
 interface](converter.html) and via a command-line interface, which has an
@@ -111,7 +111,7 @@ course, I can call it as any other external program in Vim:
     :r !symbol2unicode "(forall i:i in NN:i <= i^2)"
 
 Which will insert (∀ i: i ∈ ℕ: i ≤ i²) on the line below the one where the
-cursor is. This works fine, but the command is quite a lineful,
+cursor is. This works fine, but the command is quite a "lineful",
 particularly if you only want to insert a single symbol now and then. A simple
 way to decrease the invocation length, is to create an alias in
 [Bash](https://www.gnu.org/software/bash/) (or any other shell that supports

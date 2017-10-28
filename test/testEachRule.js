@@ -287,12 +287,32 @@ var DEFAULT_REPLACEMENTS = [
     ["/\\/",    "⚡"]
 ];
 
-const State = class {
+/**
+ * A State in a deterministic finite state machine (DFA). The starting state will
+ * reperesent the whole DFA.
+ */
+class State {
+
+    /**
+     * Create a new State.
+     */
     constructor() {
         this.accepting = [];
         this.transitions = {};
     }
 
+    /**
+     * Construct a path in the DFA for the original ASCII string to the
+     * unicode replacement, starting at position index in the original string.
+     *
+     * @param {String} original - a string of ASCII symbols
+     * @param {String} replacement - the unicode symbol that should replace
+     * the original string
+     * @param {Number} [index = 0] - the index in the original string to start
+     * at.
+     *
+     * @throws {Error} There can be only one rule for an original string.
+     */
     constructPath(original, replacement, index = 0) {
         if (index < original.length) {
             const nextChar = original.slice(index, index + 1);
@@ -313,6 +333,18 @@ const State = class {
         }
     }
 
+    /**
+     * Find the next replacement given the current DFA in an input string from
+     * position start and length len.
+     *
+     * @param {String} str - the input string
+     * @param {Number} start - the starting position
+     * @param {Number} [len = 0] - the length of the string sequence to
+     * replace
+     *
+     * @returns {String[]} - a pair consisting of the string that is being
+     * replaced and the replacement, or the empty list.
+     */
     findNextReplacement(str, start, len = 0) {
         const end = start + len;
         const nextChar = str.slice(end, end + 1);
@@ -327,14 +359,34 @@ const State = class {
             return replacement || [];
         }
     }
-};
+}
 
+/**
+ * The Converter controls and runs the actual conversion process.
+ */
 class Converter {
+
+    /**
+     * Create a new Converter based on a set of replacement rules.
+     *
+     * @param {Array} [replacements = DEFAULT_REPLACEMENTS] - the list with
+     * replacement rules. Each rule consists of two Strings: the original
+     * string with ASCII symbols and the unicode replacement symbol.
+     */
     constructor(replacements = DEFAULT_REPLACEMENTS) {
         this.dfa = new State();
         replacements.forEach(([original, replacement]) => this.rule(original, replacement));
     }
 
+    /**
+     * Add a new replacement rule.
+     *
+     * @param {String} original - a string of ASCII sybols
+     * @param {String} replacement - the unicode replacement symbol
+     *
+     * @throws {Error} The original string cannot be empty.
+     * @throws {Error} The replacement symbol should exactly be 1 character.
+     */
     rule(original, replacement) {
         if (0 >= original.length) {
             throw new Error(`Expecting an original string of at least 1 character, found '${original}' instead.`);
@@ -347,6 +399,12 @@ class Converter {
         this.dfa.constructPath(original, replacement);
     }
     
+    /**
+     * Run all replacement rules of this Converter on the input string.
+     *
+     * @param {String} input - the string to convert
+     * @returns {String} the input string with all replacement rules applied
+     */
     run(input) {
         let start = 0;
         let str = input;

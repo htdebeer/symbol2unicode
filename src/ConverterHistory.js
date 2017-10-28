@@ -1,7 +1,7 @@
 /**
  * symbol2unicode: convert a string of ascii symbols to unicode
  * 
- * copyright (C) 2016 Huub de Beer <Huub@heerdebeer.org>
+ * copyright (C) 2016, 2017 Huub de Beer <Huub@heerdebeer.org>
  *
  * This program is free software: you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by the Free
@@ -16,12 +16,25 @@
  * You should have received a copy of the GNU General Public License along
  * with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-export default class {
+/**
+ * The ConverterHistory keeps track of the strings that already have been
+ * replaced.
+ */
+class ConverterHistory {
+
+    /**
+     * Create a new ConverterHistory.
+     */
     constructor () {
         this.history = [];
         this.currentIndex = -1;
     }
 
+    /**
+     * Add a string that has been converted to the history.
+     *
+     * @param {String} str
+     */
     add (str) {
         if (0 < this.history.length) {
             const top = this.history[this.history.length - 1];
@@ -36,6 +49,12 @@ export default class {
         this.currentIndex = this.history.length - 1;
     }
 
+    /**
+     * Move to the previous converted string and return it.
+     *
+     * @returns {String} the string that has been converted before the current
+     * one or, if there is no such string, the empty string.
+     */
     previous () {
         let str = "";
         if (0 <= this.currentIndex) {
@@ -45,6 +64,12 @@ export default class {
         return str;
     }
 
+    /**
+     * Move to the next converted string and return it.
+     *
+     * @returns {String} the string that has been converted after the current
+     * one or, if there is no such string, the empty string.
+     */
     next () {
         let str = "";
         if (this.history.length - 1 > this.currentIndex) {
@@ -54,3 +79,5 @@ export default class {
         return str;
     }
 }
+
+export default ConverterHistory;

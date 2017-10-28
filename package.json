@@ -1,13 +1,14 @@
 {
   "name": "symbol2unicode",
-  "version": "1.0.5",
+  "version": "1.1.0",
   "description": "Convert a string of ascii symbols to unicode",
   "bin": {
     "symbol2unicode": "bin/cli"
   },
   "scripts": {
     "build": "rollup src/cli.js -o lib/cli.js; rollup src/web.js -o lib/web.js; rollup src/symbol2unicode.js -o index.js",
-    "test": "rollup test/testEachRule.es2015.js -o test/testEachRule.js; mocha test/testEachRule.js"
+    "test": "rollup test/testEachRule.es2015.js -o test/testEachRule.js; mocha test/testEachRule.js",
+    "doc": "node_modules/jsdoc/jsdoc.js ./src --destination api --recurse --template node_modules/docdash"
   },
   "repository": {
     "type": "git",
@@ -26,10 +27,12 @@
   "homepage": "https://heerdebeer.org/Software/symbol2unicode/",
   "devDependencies": {
     "chai": "^3.5.0",
+    "docdash": "^0.4.0",
+    "jsdoc": "^3.5.5",
     "mocha": "^2.5.3",
     "rollup": "^0.31.2"
   },
   "engines": {
-    "node": ">=6.0.0"
+    "node": ">=8.0.0"
   }
 }
