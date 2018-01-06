@@ -1,7 +1,7 @@
 /**
  * symbol2unicode: convert a string of ascii symbols to unicode
  * 
- * copyright (C) 2016 Huub de Beer <Huub@heerdebeer.org>
+ * copyright (C) 2016, 2017 Huub de Beer <Huub@heerdebeer.org>
  *
  * This program is free software: you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by the Free
@@ -16,8 +16,10 @@
  * You should have received a copy of the GNU General Public License along
  * with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-// Symbols added in order from https://en.wikipedia.org/wiki/List_of_Unicode_characters
-var DEFAULT_REPLACEMENTS = [
+/**
+ * Default set of replacement rules. Replacement rules are added in order from https://en.wikipedia.org/wiki/List_of_Unicode_characters
+ */
+const DEFAULT_REPLACEMENTS = [
     ["SS",      "§"], // Latin-1 supplement: https://en.wikipedia.org/wiki/Latin-1_Supplement_(Unicode_block)
     ["(c)",     "©"],
     ["~",       "¬"],
