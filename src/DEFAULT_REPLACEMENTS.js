@@ -286,7 +286,8 @@ const DEFAULT_REPLACEMENTS = [
     ["|~",      "⚐"],
     ["/!\\",    "⚠"],
     ["warning", "⚠"],
-    ["/\\/",    "⚡"]
+    ["/\\/",    "⚡"], // Greek letters
+    [".\\",     "λ"]
 ];
 
 export default DEFAULT_REPLACEMENTS;
